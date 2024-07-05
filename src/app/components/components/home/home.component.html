@@ -1,0 +1,112 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+/>
+
+<div class="what">
+  <h2>What do you want to watch?</h2>
+</div>
+<div class="search-bar">
+  <div class="angle">
+    <div class="content">
+      <input placeholder="Search" type="search" />
+    </div>
+    <div class="search-btn">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="19"
+        height="18"
+        viewBox="0 0 19 18"
+        fill="none"
+      >
+        <ellipse
+          cx="7.57177"
+          cy="7.4819"
+          rx="7.57177"
+          ry="7.4819"
+          transform="matrix(-1 0 0 1 17.178 1)"
+          stroke="#67686D"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M4.33984 14.0743L1.37128 17"
+          stroke="#67686D"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="movie-slider">
+    <div class="slider-container" #sliderContainer>
+      <div class="slider">
+        <div class="slide" *ngFor="let movie of popularMovies; let i = index">
+          <img
+            src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}"
+            alt="Movie 1"
+          />
+          <span>{{ i + 1 }}</span>
+        </div>
+      </div>
+    </div>
+    <button class="prev-button" (click)="onPrevClick()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+      </svg>
+    </button>
+    <button class="next-button" (click)="onNextClick()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path d="M6.59 16.59L11.17 12 6.59 7.41 8 6l6 6-6 6-1.41-1.41z" />
+      </svg>
+    </button>
+  </div>
+  <div class="tabs-bar">
+    <button class="tab-button2">Now playing</button>
+    <button class="tab-button">Upcoming</button>
+    <button class="tab-button">Top rated</button>
+    <button class="tab-button">Popular</button>
+
+    <div class="active-line"></div>
+  </div>
+
+  <div class="movie-posters">
+    <div class="row">
+      <div class="poster">
+        <img src="../../../../assets/1.png" alt="Movie 1" />
+      </div>
+      <div class="poster">
+        <img src="../../../../assets/2.png" alt="Movie 2" />
+      </div>
+      <div class="poster">
+        <img src="../../../../assets/3.png" alt="Movie 3" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="poster">
+        <img src="../../../../assets/4.png" alt="Movie 4" />
+      </div>
+      <div class="poster">
+        <img src="../../../../assets/5.png" alt="Movie 5" />
+      </div>
+      <div class="poster">
+        <img src="../../../../assets/6.png" alt="Movie 6" />
+      </div>
+    </div>
+  </div>
+</div>

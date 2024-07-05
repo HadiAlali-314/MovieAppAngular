@@ -1,0 +1,56 @@
+<div class="title">
+  <i class="fa-solid fa-arrow-left"></i>
+  <h1>Search</h1>
+  <i class="fa-solid fa-circle-exclamation"></i>
+</div>
+<div class="search-bar">
+  <div class="angle">
+    <div class="content">
+      <input
+        [(ngModel)]="searchQuery"
+        placeholder="Search for movies..."
+        (keyup)="search()"
+        type="search"
+      />
+    </div>
+    <div class="search-btn">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="19"
+        height="18"
+        viewBox="0 0 19 18"
+        fill="none"
+      >
+        <ellipse
+          cx="7.57177"
+          cy="7.4819"
+          rx="7.57177"
+          ry="7.4819"
+          transform="matrix(-1 0 0 1 17.178 1)"
+          stroke="#67686D"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M4.33984 14.0743L1.37128 17"
+          stroke="#67686D"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let movie of searchResults">
+  <app-movie-card
+    [poster_path]="movie.poster_path"
+    [original_title]="movie.original_title"
+    [vote_average]="movie.vote_average"
+    [release_date]="movie.release_date"
+    [id]="movie.id"
+  ></app-movie-card>
+</div>
+<app-no-search-results *ngIf="noResults === true"></app-no-search-results>

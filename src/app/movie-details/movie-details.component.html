@@ -1,0 +1,77 @@
+<div class="header">
+  <i class="fa-solid fa-arrow-left"></i>
+  <h1>Detail</h1>
+  <i class="fa-solid fa-bookmark"></i>
+</div>
+
+<div class="details-container">
+  <img
+    class="backdrop"
+    src="https://image.tmdb.org/t/p/original{{ movieDetails.backdrop_path }}"
+    alt=""
+  />
+  <div class="movie-details">
+    <div class="movie-poster">
+      <img
+        src="https://image.tmdb.org/t/p/original{{ movieDetails.poster_path }}"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="rating-container">
+    <div class="rating">
+      <i class="fa-regular fa-star"></i>
+      <p class="rating">{{ movieDetails.vote_average }}</p>
+    </div>
+  </div>
+  <div class="title">
+    <h1>{{ movieDetails.title }}</h1>
+  </div>
+</div>
+<div class="description">
+  <div class="release-date">
+    <i class="fa-regular fa-calendar"></i>
+    <h4>2021</h4>
+  </div>
+  <div class="vector">|</div>
+  <div class="time">
+    <i class="fa-regular fa-clock"></i>
+    <h4>2021</h4>
+  </div>
+  <div class="vector">|</div>
+  <div class="genre">
+    <i class="fa-solid fa-ticket"></i>
+    <h4>2021</h4>
+  </div>
+</div>
+
+<div class="tabs-bar">
+  <button
+    *ngFor="let tab of tabs"
+    class="tab-button"
+    [class.active]="tab.active"
+    (click)="setActiveTab(tab)"
+  >
+    {{ tab.label }}
+  </button>
+</div>
+<div *ngIf="tabs[0].active" class="about-section">
+  {{ movieDetails.overview }}
+</div>
+<div *ngIf="tabs[1].active" class="reviews-section">
+  <app-review-card
+    *ngFor="let review of reviews"
+    [content]="review.content"
+    [author]="review.author"
+    [rating]="review.author_details.rating"
+  ></app-review-card>
+</div>
+<div *ngIf="tabs[2].active" class="cast-section">
+  <div class="cast-card" *ngFor="let cast of casts">
+    <img
+      src="https://image.tmdb.org/t/p/original{{ cast.profile_path }}"
+      alt="profile img"
+    />
+    <h1>{{ cast.name }}</h1>
+  </div>
+</div>

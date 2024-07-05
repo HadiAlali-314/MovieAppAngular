@@ -1,0 +1,27 @@
+<a class="movie-poster" [routerLink]="['/movies', id]">
+  <div class="poster-image">
+    <img
+      src="https://image.tmdb.org/t/p/original{{ poster_path }}"
+      alt="Movie 1 "
+    />
+  </div>
+  <div class="poster-info">
+    <h2 class="title">{{ original_title }}</h2>
+    <h6 class="star">
+      <i class="fa-regular fa-star"></i>
+      <p class="rating">{{ vote_average }}</p>
+    </h6>
+    <div class="genre">
+      <i class="fa-solid fa-ticket icons1"></i>
+      <p class="text">Action</p>
+    </div>
+    <div class="release_date">
+      <i class="fas fa-calendar icons2"></i>
+      <p class="text2">{{ release_date }}</p>
+    </div>
+    <div class="duration">
+      <i class="fas fa-clock icons"></i>
+      <p class="text3">139 minutes</p>
+    </div>
+  </div>
+</a>
